@@ -7,9 +7,8 @@ import { seeInitalProduct } from "./services/productService.js";
 
 
 const app = express();
-
-app.use(express.json());
 const port = 3001;
+app.use(express.json());
 
 mongoose.connect("mongodb://localhost:27017/ecommerce").then(() => {
     console.log("Connected to MongoDB");
