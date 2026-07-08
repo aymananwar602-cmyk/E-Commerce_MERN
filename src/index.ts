@@ -1,6 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import userRoute from "./routes/userRoute.js";
+import productRoute from "./routes/productRoute.js"
+import { seeInitalProduct } from "./services/productService.js";
 
 
 
@@ -15,7 +17,11 @@ mongoose.connect("mongodb://localhost:27017/ecommerce").then(() => {
     console.log("Error connecting to MongoDB", err);
 });
 
+// seed the products to database
+seeInitalProduct();
+
 app.use("/user", userRoute);
+app.use("/product", productRoute)
 
 
 
