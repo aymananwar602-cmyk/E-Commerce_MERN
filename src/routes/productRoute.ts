@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllProduct } from "../services/productService.js";
+import { getAllProducts } from "../services/productService.js";
 
 
 
@@ -8,7 +8,7 @@ import { getAllProduct } from "../services/productService.js";
 const router  = express.Router();
 
 router.get('/',async(req,res)=>{
-    const products = await getAllProduct();
+    const products = await getAllProducts();
     res.status(200).send(products)
 })
 

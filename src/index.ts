@@ -20,7 +20,7 @@ mongoose.connect("mongodb://localhost:27017/ecommerce").then(() => {
 seeInitalProduct();
 
 app.use("/user", userRoute);
-app.use("/product", productRoute)
+app.use("/Product", productRoute)
 
 
 

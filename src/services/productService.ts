@@ -1,6 +1,6 @@
 import productModel from "../models/productModel.js";
 
-export const getAllProduct = async () => {
+export const getAllProducts = async () => {
     return await productModel.find();
 }
 
@@ -19,7 +19,7 @@ export const seeInitalProduct = async() => {
         { title: "Whey Isolate", image: "https://www.pinterest.com/pin/877920521115494817/", price: 700, stock: 25 }
     ];
 
-    const existingProducts = await getAllProduct();
+    const existingProducts = await getAllProducts();
 
     if(existingProducts.length === 0 ){
         await productModel.insertMany(products)
