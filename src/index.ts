@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import userRoute from "./routes/userRoute.js";
 import productRoute from "./routes/productRoute.js"
 import { seeInitalProduct } from "./services/productService.js";
+import cartRoute from "./routes/cartRoute.js";
 
 
 
@@ -21,6 +22,7 @@ seeInitalProduct();
 
 app.use("/user", userRoute);
 app.use("/Product", productRoute)
+app.use("/cart", cartRoute);
 
 
 
