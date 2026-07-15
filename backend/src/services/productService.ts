@@ -6,7 +6,8 @@ export const getAllProducts = async () => {
 
 
 export const seeInitalProduct = async() => {
-    const products = [
+    try{
+        const products = [
         { title: "Protein Powder", image: "https://www.pinterest.com/pin/1149895717402824143/", price: 500, stock: 50 },
         { title: "Creatine", image: "https://www.pinterest.com/pin/1143351424171936920/", price: 300, stock: 80 },
         { title: "Omega 3", image: "https://www.pinterest.com/pin/333688653658554380/", price: 200, stock: 60 },
@@ -24,4 +25,9 @@ export const seeInitalProduct = async() => {
     if(existingProducts.length === 0 ){
         await productModel.insertMany(products)
     }
+
+    }catch(err){
+        console.error("Error seeding products: ", err);
+    }
+    
 };

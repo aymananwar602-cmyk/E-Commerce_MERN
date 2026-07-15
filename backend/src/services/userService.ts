@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
 
 
+
 interface RegisterParams {
     firstName: string;
     lastName: string;
@@ -51,6 +52,6 @@ export const login = async (params: LoginParams) => {
 
 
 const generateJWT = (data : any) => {
-    return jwt.sign(data, 'wShMTI4zPlin0h86F9XYJz');
+    return jwt.sign(data, process.env.JWT_SECRET || " ");
 }
 
