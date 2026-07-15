@@ -1,12 +1,11 @@
 import type {Request,Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import userModel from "../models/userModel.js";
+import type { ExtendedRequest } from "../types/extendedRequests.js";
 
 
 
-interface ExtendedRequest extends Request {
-    user?: any;
-}
+
 
 const validateJWT = (req: ExtendedRequest, res:Response , next:NextFunction) => {
     const authHeader = req.get("authorization");
@@ -31,11 +30,10 @@ const validateJWT = (req: ExtendedRequest, res:Response , next:NextFunction) => 
             return;
         }
         const userPayload = payload as any;
-        // fetch the user from database on the payload
         const user =await userModel.findOne({email : userPayload.email});
         req.user = user;
         next();
-    } )
+    } );
 }
 
 export default validateJWT;
